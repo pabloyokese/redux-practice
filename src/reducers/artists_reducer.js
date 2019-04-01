@@ -4,6 +4,9 @@ export default function(state={},action){
            return {...state,artistsList:action.payload} 
         case 'GET_ARTISTS_ALL':
            return {...state,artistsList:action.payload} 
+        
+        case 'GET_ARTISTS_DETAIL':
+            return {...state,artistData:action.payload} 
         default:
             return state;
     }
