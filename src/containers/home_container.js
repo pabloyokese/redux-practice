@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
-import { artistListAll } from '../actions';
+import { artistListAll,artistList } from '../actions';
 import { bindActionCreators } from 'redux';
 
 import Search from '../components/search';
@@ -17,7 +17,7 @@ class HomeContainer extends Component {
     getKeywords = (event) => {
         let key = event.target.value;
 
-        console.log(key)
+        this.props.artistList(key);
     }
 
     render(){
@@ -39,7 +39,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps (dispatch){
-    return bindActionCreators({artistListAll},dispatch)
+    return bindActionCreators({artistListAll,artistList},dispatch)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(HomeContainer);
